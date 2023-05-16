@@ -1,0 +1,45 @@
+@import "./basics";
+
+body {
+  @include layout;
+}
+header {
+  @include header-style;
+}
+#top-text::before {
+  @include top-text("3");
+}
+
+.top {
+  @include show-items(3, 4, 5);
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 2px;
+  .top-item {
+    width: 100%;
+    img {
+      min-width: 225px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+.first {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  .item {
+    width: 100%;
+    img {
+      min-width: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.second {
+  @extend .first;
+}

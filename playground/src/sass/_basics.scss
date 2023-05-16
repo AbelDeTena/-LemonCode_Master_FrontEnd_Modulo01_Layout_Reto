@@ -1,0 +1,85 @@
+//fonts
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
+$mainFont: "Jost", sans-serif;
+//color
+$mainColor: #141414;
+$lightColor: aliceblue;
+//generic
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $mainFont;
+  color: $lightColor;
+}
+//mixin
+
+@mixin layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: $mainFont;
+  font-weight: lighter;
+  background-color: $mainColor;
+  width: 100%;
+  padding: 1em;
+}
+@mixin header-style {
+  display: flex;
+  justify-content: space-between;
+  // padding: 1em;
+  position: sticky;
+  top: 0;
+  background-color: $mainColor;
+  z-index: 1;
+  .header-logo {
+    transform: scale(0.9);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .platform-title {
+    font-size: 28px;
+    display: none;
+  }
+  .header-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 60px;
+      border-radius: 5px;
+      transition: all 0.5s;
+      cursor: pointer;
+      &:hover {
+        color: $mainColor;
+        background-color: $lightColor;
+      }
+      &:active {
+        transform: scale(0.8);
+      }
+    }
+  }
+}
+
+@mixin top-text($number) {
+  content: $number;
+  font-size: 35px;
+  font-weight: bolder;
+}
+
+@mixin show-items($indexes...) {
+  .top-item {
+    display: none;
+    @each $index in $indexes {
+      &:nth-child(#{$index}) {
+        display: inline;
+      }
+    }
+  }
+}
