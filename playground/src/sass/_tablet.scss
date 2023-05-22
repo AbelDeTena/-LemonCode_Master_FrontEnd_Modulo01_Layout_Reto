@@ -1,9 +1,7 @@
 @import "./basics";
 
 @media screen and (min-width: 728px) {
-  body {
-    background-color: darkgray;
-
+  body {  
     .top {
       @include show-items(3, 4, 5);
       display: flex;
@@ -30,17 +28,20 @@
       gap: 2px;
       width: 100%;
       .item {
-        flex-grow: 1;
-        width: min-content;
-        img {
-          min-width: 250px;
-          width: 100%;
-          object-fit: cover;
-          transition: all 1s;
-          &:hover {
-            z-index: -1;
-            transform: scale(1.2);
-          }
+        min-width: 250px;
+        flex: 1;
+        margin: 2px;
+        background-position: top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        transition: flex 0.5s, margin-top 0.5s;
+        &:hover {
+          position: relative;
+          transition: flex 0.5s, margin-top 0.5s, margin-bottom 0.5s;
+          flex: 1.15;
+          margin-top: -2%;
+          margin-bottom: 0;
         }
       }
     }

@@ -26,8 +26,7 @@ $lightColor: aliceblue;
 }
 @mixin header-style {
   display: flex;
-  justify-content: space-between;
-  // padding: 1em;
+  justify-content: space-between; 
   position: sticky;
   top: 0;
   background-color: $mainColor;
